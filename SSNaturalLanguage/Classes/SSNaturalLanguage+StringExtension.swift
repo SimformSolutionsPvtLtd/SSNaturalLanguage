@@ -9,21 +9,11 @@ import UIKit
 import NaturalLanguage
 
 extension String {
-
-    private struct CustomTagsStruct {
-        static var customTags: [String] = []
-        var customTagProperty: [String] {
-            get {
-                return CustomTagsStruct.customTags
-            }
-            set(newValue) {
-                CustomTagsStruct.customTags = newValue.map{ $0.lowercased()}
-            }
-        }
-    }
     
-    //Tokenisation
-    func tokenize(unit: NLTokenUnit) -> [String] {
+    /// It split a string into chunks of words, sentences, characters or paragraphs.
+    /// - Parameter unit: NLTokenUnit
+    /// - Returns: Return array of splited string.
+    public func splitInto(unit: NLTokenUnit) -> [String] {
         var arrTokens: [String] = []
         let tokenizer = NLTokenizer(unit: unit)
         tokenizer.string = self
@@ -34,14 +24,15 @@ extension String {
         return arrTokens
     }
     
-    //Lemmatization
-    func lemmatize() -> [String] {
-        var arrLemmatize: [String] = []
+    /// It converts word into base form. eg. "assumed" to "assume"
+    /// - Returns: Return tuple of word and its base form.
+    public func toBaseForm() -> [(word: String, baseForm: String)] {
+        var arrLemmatize: [(word: String, baseForm: String)] = []
         let tagger = NLTagger(tagSchemes: [.lemma])
         tagger.string = self
         tagger.enumerateTags(in: self.startIndex..<self.endIndex, unit: .word, scheme: .lemma) { tag, tokenRange in
           if let tag = tag {
-            arrLemmatize.append(tag.rawValue)
+            arrLemmatize.append((word: "\(self[tokenRange])", baseForm: "\(tag.rawValue)"))
           }
           return true
         }
@@ -49,21 +40,31 @@ extension String {
     }
     
     //language Identification
-    func languageIdentity() -> String? {
+    /// Finds dominant language code from the text content.
+    /// - Returns: Return language identity code
+    public func identifyLanguage() -> String? {
         let languageRecog = NLLanguageRecognizer()
         languageRecog.processString(self)
         return languageRecog.dominantLanguage?.rawValue
     }
     
-    //possible language
-    func possibleLanguages(maximumResult: Int) -> [NLLanguage: Double] {
+    /// Returns array of predicted language with its confidence.
+    /// - Parameter maxPredictCount: pass maximum prediction count.
+    /// - Returns: Returns array of language code and its confidence
+    public func predictedLanguage(maxPredictCount: Int) -> [(languageCode: String, confidence: Double)] {
+        var arrLanguages = [(languageCode: String, confidence: Double)]()
         let languageRecog = NLLanguageRecognizer()
         languageRecog.processString(self)
-        let dictPossibleLanguages = languageRecog.languageHypotheses(withMaximum: maximumResult)
-        return dictPossibleLanguages
+        let dictPredictedLang = languageRecog.languageHypotheses(withMaximum: 5)
+        for element in dictPredictedLang {
+            arrLanguages.append((languageCode: element.key.rawValue, confidence: element.value))
+        }
+        return arrLanguages
     }
     
-    func correctSpell() -> String {
+    /// Returns a string with correct spelling.
+    /// - Returns: Returns a string with correct spelling.
+    public func correctSpell() -> String {
         guard let dominantLanguage = NLLanguageRecognizer.dominantLanguage(for: self) else {
             return self
         }
@@ -85,40 +86,42 @@ extension String {
         return updatedText
     }
     
-    func partOfSpeechTags() -> [[String: NLTag]] {
-        var arrPartOfSpeech = [[String: NLTag]]()
+    /// It identify words from speech or a sentence as nouns, pronouns, verbs, adjectives, prepositions, idioms, etc.
+    /// - Returns: Tuple of word and its tag.
+    public func partOfSpeech() -> [(word: String, tag: NLTag)] {
+        var arrPartOfSpeech = [(word: String, tag: NLTag)]()
         let tagger = NLTagger(tagSchemes: [.lexicalClass])
         let options: NLTagger.Options = [.omitWhitespace, .omitPunctuation]
         tagger.string = self
         tagger.enumerateTags(in: self.startIndex..<self.endIndex, unit: .word, scheme: .lexicalClass, options: options) { tag, tokenRange in
-            if let tag = tag{
-                var dictToken: [String: NLTag] = [:]
-                dictToken["\(self[tokenRange])"] = tag
-                arrPartOfSpeech.append(dictToken)
+            if let tag = tag {
+                arrPartOfSpeech.append((word: "\(self[tokenRange])", tag: tag))
             }
             return true
         }
         return arrPartOfSpeech
     }
     
-    func recognizeNamedEntity() -> [[String: String]] {
-        var arrNamedEntity = [[String: String]]()
+    /// It identify names of people, places, and organizations in similar fashion
+    /// - Returns: Tuple of word and its tag.
+    public func recognizeNamedEntity() -> [(word: String, tag: NLTag)] {
+        var arrNamedEntity = [(word: String, tag: NLTag)]()
         let tagger = NLTagger(tagSchemes: [.nameType])
         tagger.string = self
         let options: NLTagger.Options = [.omitPunctuation, .omitWhitespace, .joinNames]
         let tags: [NLTag] = [.personalName, .placeName, .organizationName]
         tagger.enumerateTags(in: self.startIndex..<self.endIndex, unit: .word, scheme: .nameType, options: options) { tag, tokenRange in
             if let tag = tag, tags.contains(tag) {
-                var dictToken: [String: String] = [:]
-                dictToken["\(self[tokenRange])"] = "\(tag.rawValue)"
-                arrNamedEntity.append(dictToken)
+                arrNamedEntity.append((word: "\(self[tokenRange])", tag: tag))
             }
             return true
         }
         return arrNamedEntity
     }
     
-    func sentimentalScore() -> Double {
+    /// It analyses the degree of sentiment in the text, and based on that gives a score that ranges from -1 (highly negative) to 1 (very positive).
+    /// - Returns: Return sentimental score
+    public func sentimentalScore() -> Double {
         let tagger = NLTagger(tagSchemes: [.sentimentScore])
         tagger.string = self
         let sentiment = tagger.tag(at: self.startIndex, unit: .paragraph, scheme: .sentimentScore).0
@@ -126,40 +129,40 @@ extension String {
         return score
     }
     
-    func neighboringWords() -> [(String, NLDistance)]? {
+    
+    /// It basically maps strings to their vector counterparts. In doing so, strings that have small vector distances are deemed similar.
+    /// - Parameter maximumCount: maximum resukt count
+    /// - Returns: Return tuple of similar words and its distance
+    public func neighboringWords(maximumCount: Int) -> [(String, NLDistance)] {
         guard let lang = NLLanguageRecognizer.dominantLanguage(for: self) else {
             return []
         }
         let embedding = NLEmbedding.wordEmbedding(for: lang)
-        if let res = embedding?.neighbors(for: self, maximumCount: 5) {
+        if let res = embedding?.neighbors(for: self, maximumCount: maximumCount) {
             return res
         } else {
-            return nil
+            return []
         }
     }
     
-    static func addCustomTags(tags: [String]) {
-        CustomTagsStruct.customTags = tags
-    }
-    
-    static func getCustomTags() -> [String] {
-        return CustomTagsStruct.customTags
-    }
-    
-    func findUniqueTag() -> [String] {
+    /// It finds unique tags from the string
+    /// - Parameter defaultTags: An array of default tags. Which help you to get unique tags from string. If it identify same default tag in given string, it will return in this function.
+    /// - Returns: An array of tags.
+    public func findUniqueTag(with defaultTags: [String] = []) -> [String] {
+        let defaultTag = defaultTags.map{ $0.lowercased()}
         var arrTags: [String] = []
-        let customTags = String.getCustomTags()
         let tagger = NLTagger(tagSchemes: [.lexicalClass])
         let options : NLTagger.Options = [.omitWhitespace, .omitPunctuation]
         tagger.string = self
         tagger.enumerateTags(in: self.startIndex..<self.endIndex, unit: .word, scheme: .lexicalClass, options: options) { tag, tokenRange in
             if let tag = tag {
-                if tag.rawValue == "Noun" || customTags.contains("\(self[tokenRange])".lowercased()) {
+                if tag.rawValue == "Noun" || defaultTag.contains("\(self[tokenRange])".lowercased()) {
                     arrTags.append("\(self[tokenRange])")
                 }
             }
             return true
         }
-        return Array(Set(arrTags))
+        arrTags = arrTags.map{ $0.capitalized}
+        return Array(Set(arrTags)).map{ $0.capitalized}
     }
 }
