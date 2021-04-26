@@ -138,9 +138,9 @@ extension ChooseOptionVC: UITableViewDelegate {
             let sentimentalScore = text.sentimentalScore()
             goToSentimentalAnalysisVC(result: sentimentalScore)
         case .wordEmbedding:
-            let neighbouringWord = text.neighboringWords(maximumCount: 5)
+            let neighbouringWord = text.neighboringWords(maximumResult: 5)
             let arrModel = neighbouringWord.map ({ (word) -> ResultModel in
-                return ResultModel(result: "")
+                return ResultModel(result: word.word)
             })
             goToResultVC(data: arrModel)
         case .tags:
