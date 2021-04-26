@@ -55,7 +55,7 @@ extension String {
         var arrLanguages = [(languageCode: String, confidence: Double)]()
         let languageRecog = NLLanguageRecognizer()
         languageRecog.processString(self)
-        let dictPredictedLang = languageRecog.languageHypotheses(withMaximum: 5)
+        let dictPredictedLang = languageRecog.languageHypotheses(withMaximum: maxPredictCount)
         for element in dictPredictedLang {
             arrLanguages.append((languageCode: element.key.rawValue, confidence: element.value))
         }
@@ -102,6 +102,57 @@ extension String {
         return arrPartOfSpeech
     }
     
+    /// It identify personName
+    /// - Returns: Array of person name
+    public func recognizePersonName() -> [String] {
+        var arrNamedEntity = [String]()
+        let tagger = NLTagger(tagSchemes: [.nameType])
+        tagger.string = self
+        let options: NLTagger.Options = [.omitPunctuation, .omitWhitespace, .joinNames]
+        let tags: [NLTag] = [.personalName]
+        tagger.enumerateTags(in: self.startIndex..<self.endIndex, unit: .word, scheme: .nameType, options: options) { tag, tokenRange in
+            if let tag = tag, tags.contains(tag) {
+                arrNamedEntity.append("\(self[tokenRange])")
+            }
+            return true
+        }
+        return arrNamedEntity
+    }
+    
+    /// It identify placeName
+    /// - Returns: Array of place name.
+    public func recognizePlaceName() -> [String] {
+        var arrNamedEntity = [String]()
+        let tagger = NLTagger(tagSchemes: [.nameType])
+        tagger.string = self
+        let options: NLTagger.Options = [.omitPunctuation, .omitWhitespace, .joinNames]
+        let tags: [NLTag] = [.placeName]
+        tagger.enumerateTags(in: self.startIndex..<self.endIndex, unit: .word, scheme: .nameType, options: options) { tag, tokenRange in
+            if let tag = tag, tags.contains(tag) {
+                arrNamedEntity.append("\(self[tokenRange])")
+            }
+            return true
+        }
+        return arrNamedEntity
+    }
+    
+    /// It identify organization name
+    /// - Returns: Array of organization name
+    public func recognizeOrganizationName() -> [String] {
+        var arrNamedEntity = [String]()
+        let tagger = NLTagger(tagSchemes: [.nameType])
+        tagger.string = self
+        let options: NLTagger.Options = [.omitPunctuation, .omitWhitespace, .joinNames]
+        let tags: [NLTag] = [.organizationName]
+        tagger.enumerateTags(in: self.startIndex..<self.endIndex, unit: .word, scheme: .nameType, options: options) { tag, tokenRange in
+            if let tag = tag, tags.contains(tag) {
+                arrNamedEntity.append("\(self[tokenRange])")
+            }
+            return true
+        }
+        return arrNamedEntity
+    }
+    
     /// It identify names of people, places, and organizations in similar fashion
     /// - Returns: Tuple of word and its tag.
     public func recognizeNamedEntity() -> [(word: String, tag: NLTag)] {
@@ -133,13 +184,16 @@ extension String {
     /// It basically maps strings to their vector counterparts. In doing so, strings that have small vector distances are deemed similar.
     /// - Parameter maximumCount: maximum resukt count
     /// - Returns: Return tuple of similar words and its distance
-    public func neighboringWords(maximumCount: Int) -> [(String, NLDistance)] {
-        guard let lang = NLLanguageRecognizer.dominantLanguage(for: self) else {
+    public func neighboringWords(maximumResult: Int) -> [(word: String, distance: NLDistance)] {
+        let inputString = self.lowercased()
+        guard let lang = NLLanguageRecognizer.dominantLanguage(for: inputString) else {
             return []
         }
         let embedding = NLEmbedding.wordEmbedding(for: lang)
-        if let res = embedding?.neighbors(for: self, maximumCount: maximumCount) {
-            return res
+        if let res = embedding?.neighbors(for: inputString, maximumCount: maximumResult) {
+            return res.map ({ (word) -> (word: String, distance: NLDistance) in
+                return (word: word.0, distance: word.1)
+            })
         } else {
             return []
         }
