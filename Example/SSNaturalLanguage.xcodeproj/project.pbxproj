@@ -13,21 +13,21 @@
 		607FACE01AFB9204008FA782 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 607FACDE1AFB9204008FA782 /* LaunchScreen.xib */; };
 		607FACEC1AFB9204008FA782 /* Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACEB1AFB9204008FA782 /* Tests.swift */; };
 		7A609404E5725A2891406AFC /* Pods_SSNaturalLanguage_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EA169953F8792E0BB2A11682 /* Pods_SSNaturalLanguage_Example.framework */; };
+		CD1FDDB22632D99E00131352 /* SpellCheckingTVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD1FDDAE2632D99D00131352 /* SpellCheckingTVCell.swift */; };
+		CD1FDDB32632D99E00131352 /* SpellCheckingTVCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CD1FDDAF2632D99D00131352 /* SpellCheckingTVCell.xib */; };
+		CD1FDDB42632D99E00131352 /* ChooseOptionTVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD1FDDB02632D99D00131352 /* ChooseOptionTVCell.swift */; };
+		CD1FDDB52632D99E00131352 /* ChooseOptionTVCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CD1FDDB12632D99D00131352 /* ChooseOptionTVCell.xib */; };
+		CD1FDDBE2632D9B500131352 /* TextViewWithPlaceholder.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD1FDDBA2632D9B500131352 /* TextViewWithPlaceholder.swift */; };
+		CD1FDDC02632D9B500131352 /* ThemeSubmitButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD1FDDBC2632D9B500131352 /* ThemeSubmitButton.swift */; };
+		CD1FDDCD2632D9DB00131352 /* MisspellModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD1FDDCA2632D9DB00131352 /* MisspellModel.swift */; };
+		CD1FDDCE2632D9DB00131352 /* ChooseOptionModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD1FDDCB2632D9DB00131352 /* ChooseOptionModel.swift */; };
+		CD1FDDCF2632D9DB00131352 /* ResultModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD1FDDCC2632D9DB00131352 /* ResultModel.swift */; };
 		CDF16EAC2631880100B35735 /* ResultVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDF16EA62631880100B35735 /* ResultVC.swift */; };
 		CDF16EAD2631880100B35735 /* ChooseOptionVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDF16EA72631880100B35735 /* ChooseOptionVC.swift */; };
 		CDF16EAE2631880100B35735 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDF16EA82631880100B35735 /* ViewController.swift */; };
 		CDF16EAF2631880100B35735 /* SentimentalAnalysisResultVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDF16EA92631880100B35735 /* SentimentalAnalysisResultVC.swift */; };
 		CDF16EB02631880100B35735 /* LanguageIdentificationResultVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDF16EAA2631880100B35735 /* LanguageIdentificationResultVC.swift */; };
 		CDF16EB12631880100B35735 /* MisspellListingVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDF16EAB2631880100B35735 /* MisspellListingVC.swift */; };
-		CDF16EB82631881600B35735 /* MisspellModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDF16EB52631881600B35735 /* MisspellModel.swift */; };
-		CDF16EB92631881600B35735 /* ChooseOptionModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDF16EB62631881600B35735 /* ChooseOptionModel.swift */; };
-		CDF16EBA2631881600B35735 /* ResultModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDF16EB72631881600B35735 /* ResultModel.swift */; };
-		CDF16EC02631882200B35735 /* TextViewWithPlaceholder.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDF16EBE2631882100B35735 /* TextViewWithPlaceholder.swift */; };
-		CDF16EC12631882200B35735 /* ThemeSubmitButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDF16EBF2631882100B35735 /* ThemeSubmitButton.swift */; };
-		CDF16ED32631886C00B35735 /* SpellCheckingTVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDF16ECF2631886C00B35735 /* SpellCheckingTVCell.swift */; };
-		CDF16ED42631886C00B35735 /* SpellCheckingTVCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CDF16ED02631886C00B35735 /* SpellCheckingTVCell.xib */; };
-		CDF16ED52631886C00B35735 /* ChooseOptionTVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDF16ED12631886C00B35735 /* ChooseOptionTVCell.swift */; };
-		CDF16ED62631886C00B35735 /* ChooseOptionTVCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CDF16ED22631886C00B35735 /* ChooseOptionTVCell.xib */; };
 		EDF58EE08D0C54C071D4A2AE /* Pods_SSNaturalLanguage_Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BCF3A2EB863EE9CDEFCD94F8 /* Pods_SSNaturalLanguage_Tests.framework */; };
 /* End PBXBuildFile section */
 
@@ -59,21 +59,21 @@
 		9B57B2BD3F3FCAF55C65F8D5 /* Pods-SSNaturalLanguage_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SSNaturalLanguage_Example.release.xcconfig"; path = "Target Support Files/Pods-SSNaturalLanguage_Example/Pods-SSNaturalLanguage_Example.release.xcconfig"; sourceTree = "<group>"; };
 		BCF3A2EB863EE9CDEFCD94F8 /* Pods_SSNaturalLanguage_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SSNaturalLanguage_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C870A43D54471601D6E31BC6 /* Pods-SSNaturalLanguage_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SSNaturalLanguage_Tests.release.xcconfig"; path = "Target Support Files/Pods-SSNaturalLanguage_Tests/Pods-SSNaturalLanguage_Tests.release.xcconfig"; sourceTree = "<group>"; };
+		CD1FDDAE2632D99D00131352 /* SpellCheckingTVCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpellCheckingTVCell.swift; sourceTree = "<group>"; };
+		CD1FDDAF2632D99D00131352 /* SpellCheckingTVCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SpellCheckingTVCell.xib; sourceTree = "<group>"; };
+		CD1FDDB02632D99D00131352 /* ChooseOptionTVCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChooseOptionTVCell.swift; sourceTree = "<group>"; };
+		CD1FDDB12632D99D00131352 /* ChooseOptionTVCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ChooseOptionTVCell.xib; sourceTree = "<group>"; };
+		CD1FDDBA2632D9B500131352 /* TextViewWithPlaceholder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextViewWithPlaceholder.swift; sourceTree = "<group>"; };
+		CD1FDDBC2632D9B500131352 /* ThemeSubmitButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ThemeSubmitButton.swift; sourceTree = "<group>"; };
+		CD1FDDCA2632D9DB00131352 /* MisspellModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MisspellModel.swift; sourceTree = "<group>"; };
+		CD1FDDCB2632D9DB00131352 /* ChooseOptionModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChooseOptionModel.swift; sourceTree = "<group>"; };
+		CD1FDDCC2632D9DB00131352 /* ResultModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResultModel.swift; sourceTree = "<group>"; };
 		CDF16EA62631880100B35735 /* ResultVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResultVC.swift; sourceTree = "<group>"; };
 		CDF16EA72631880100B35735 /* ChooseOptionVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChooseOptionVC.swift; sourceTree = "<group>"; };
 		CDF16EA82631880100B35735 /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		CDF16EA92631880100B35735 /* SentimentalAnalysisResultVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SentimentalAnalysisResultVC.swift; sourceTree = "<group>"; };
 		CDF16EAA2631880100B35735 /* LanguageIdentificationResultVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LanguageIdentificationResultVC.swift; sourceTree = "<group>"; };
 		CDF16EAB2631880100B35735 /* MisspellListingVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MisspellListingVC.swift; sourceTree = "<group>"; };
-		CDF16EB52631881600B35735 /* MisspellModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MisspellModel.swift; sourceTree = "<group>"; };
-		CDF16EB62631881600B35735 /* ChooseOptionModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChooseOptionModel.swift; sourceTree = "<group>"; };
-		CDF16EB72631881600B35735 /* ResultModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResultModel.swift; sourceTree = "<group>"; };
-		CDF16EBE2631882100B35735 /* TextViewWithPlaceholder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextViewWithPlaceholder.swift; sourceTree = "<group>"; };
-		CDF16EBF2631882100B35735 /* ThemeSubmitButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ThemeSubmitButton.swift; sourceTree = "<group>"; };
-		CDF16ECF2631886C00B35735 /* SpellCheckingTVCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpellCheckingTVCell.swift; sourceTree = "<group>"; };
-		CDF16ED02631886C00B35735 /* SpellCheckingTVCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SpellCheckingTVCell.xib; sourceTree = "<group>"; };
-		CDF16ED12631886C00B35735 /* ChooseOptionTVCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChooseOptionTVCell.swift; sourceTree = "<group>"; };
-		CDF16ED22631886C00B35735 /* ChooseOptionTVCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ChooseOptionTVCell.xib; sourceTree = "<group>"; };
 		EA169953F8792E0BB2A11682 /* Pods_SSNaturalLanguage_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SSNaturalLanguage_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -132,9 +132,9 @@
 		607FACD21AFB9204008FA782 /* Example for SSNaturalLanguage */ = {
 			isa = PBXGroup;
 			children = (
-				CDF16ECE2631886C00B35735 /* Cells */,
-				CDF16EBD2631882100B35735 /* Helpers */,
-				CDF16EB42631881600B35735 /* Model */,
+				CD1FDDC92632D9DB00131352 /* Model */,
+				CD1FDDB82632D9B500131352 /* Helpers */,
+				CD1FDDAD2632D99D00131352 /* Cells */,
 				CDF16EA5263187E000B35735 /* Controllers */,
 				607FACD51AFB9204008FA782 /* AppDelegate.swift */,
 				607FACD91AFB9204008FA782 /* Main.storyboard */,
@@ -181,6 +181,36 @@
 			name = "Podspec Metadata";
 			sourceTree = "<group>";
 		};
+		CD1FDDAD2632D99D00131352 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				CD1FDDAE2632D99D00131352 /* SpellCheckingTVCell.swift */,
+				CD1FDDAF2632D99D00131352 /* SpellCheckingTVCell.xib */,
+				CD1FDDB02632D99D00131352 /* ChooseOptionTVCell.swift */,
+				CD1FDDB12632D99D00131352 /* ChooseOptionTVCell.xib */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
+		CD1FDDB82632D9B500131352 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				CD1FDDBA2632D9B500131352 /* TextViewWithPlaceholder.swift */,
+				CD1FDDBC2632D9B500131352 /* ThemeSubmitButton.swift */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
+		CD1FDDC92632D9DB00131352 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				CD1FDDCA2632D9DB00131352 /* MisspellModel.swift */,
+				CD1FDDCB2632D9DB00131352 /* ChooseOptionModel.swift */,
+				CD1FDDCC2632D9DB00131352 /* ResultModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		CD7775F84F89479D0147E2D1 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -201,39 +231,6 @@
 				CDF16EA82631880100B35735 /* ViewController.swift */,
 			);
 			path = Controllers;
-			sourceTree = "<group>";
-		};
-		CDF16EB42631881600B35735 /* Model */ = {
-			isa = PBXGroup;
-			children = (
-				CDF16EB52631881600B35735 /* MisspellModel.swift */,
-				CDF16EB62631881600B35735 /* ChooseOptionModel.swift */,
-				CDF16EB72631881600B35735 /* ResultModel.swift */,
-			);
-			name = Model;
-			path = "../../../../../R&D/NaturalLanguageDemo/NaturalLanguageDemo/Model";
-			sourceTree = "<group>";
-		};
-		CDF16EBD2631882100B35735 /* Helpers */ = {
-			isa = PBXGroup;
-			children = (
-				CDF16EBE2631882100B35735 /* TextViewWithPlaceholder.swift */,
-				CDF16EBF2631882100B35735 /* ThemeSubmitButton.swift */,
-			);
-			name = Helpers;
-			path = "../../../../../R&D/NaturalLanguageDemo/NaturalLanguageDemo/Helpers";
-			sourceTree = "<group>";
-		};
-		CDF16ECE2631886C00B35735 /* Cells */ = {
-			isa = PBXGroup;
-			children = (
-				CDF16ECF2631886C00B35735 /* SpellCheckingTVCell.swift */,
-				CDF16ED02631886C00B35735 /* SpellCheckingTVCell.xib */,
-				CDF16ED12631886C00B35735 /* ChooseOptionTVCell.swift */,
-				CDF16ED22631886C00B35735 /* ChooseOptionTVCell.xib */,
-			);
-			name = Cells;
-			path = "../../../../../R&D/NaturalLanguageDemo/NaturalLanguageDemo/Cells";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -323,9 +320,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				607FACDB1AFB9204008FA782 /* Main.storyboard in Resources */,
-				CDF16ED42631886C00B35735 /* SpellCheckingTVCell.xib in Resources */,
-				CDF16ED62631886C00B35735 /* ChooseOptionTVCell.xib in Resources */,
+				CD1FDDB52632D99E00131352 /* ChooseOptionTVCell.xib in Resources */,
 				607FACE01AFB9204008FA782 /* LaunchScreen.xib in Resources */,
+				CD1FDDB32632D99E00131352 /* SpellCheckingTVCell.xib in Resources */,
 				607FACDD1AFB9204008FA782 /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -409,20 +406,20 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CDF16EB82631881600B35735 /* MisspellModel.swift in Sources */,
 				CDF16EAD2631880100B35735 /* ChooseOptionVC.swift in Sources */,
 				607FACD61AFB9204008FA782 /* AppDelegate.swift in Sources */,
-				CDF16EB92631881600B35735 /* ChooseOptionModel.swift in Sources */,
+				CD1FDDBE2632D9B500131352 /* TextViewWithPlaceholder.swift in Sources */,
 				CDF16EAE2631880100B35735 /* ViewController.swift in Sources */,
 				CDF16EAC2631880100B35735 /* ResultVC.swift in Sources */,
-				CDF16ED52631886C00B35735 /* ChooseOptionTVCell.swift in Sources */,
+				CD1FDDB42632D99E00131352 /* ChooseOptionTVCell.swift in Sources */,
+				CD1FDDC02632D9B500131352 /* ThemeSubmitButton.swift in Sources */,
 				CDF16EB12631880100B35735 /* MisspellListingVC.swift in Sources */,
-				CDF16EC02631882200B35735 /* TextViewWithPlaceholder.swift in Sources */,
 				CDF16EAF2631880100B35735 /* SentimentalAnalysisResultVC.swift in Sources */,
-				CDF16ED32631886C00B35735 /* SpellCheckingTVCell.swift in Sources */,
-				CDF16EC12631882200B35735 /* ThemeSubmitButton.swift in Sources */,
-				CDF16EBA2631881600B35735 /* ResultModel.swift in Sources */,
 				CDF16EB02631880100B35735 /* LanguageIdentificationResultVC.swift in Sources */,
+				CD1FDDCE2632D9DB00131352 /* ChooseOptionModel.swift in Sources */,
+				CD1FDDB22632D99E00131352 /* SpellCheckingTVCell.swift in Sources */,
+				CD1FDDCF2632D9DB00131352 /* ResultModel.swift in Sources */,
+				CD1FDDCD2632D9DB00131352 /* MisspellModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
