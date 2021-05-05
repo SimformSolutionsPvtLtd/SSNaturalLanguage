@@ -18,11 +18,11 @@ Pod::Spec.new do |s|
   s.homepage         = 'https://github.com/Abhi Makadiya/SSNaturalLanguage'
   s.license          = { :type => 'MIT', :file => 'LICENSE' }
   s.author           = { 'Abhi Makadiya' => 'abhi.m@simformsolutions.com' }
-  s.source           = { :git => 'https://github.com/Abhi Makadiya/SSNaturalLanguage.git', :tag => s.version.to_s }
+  s.source           = { :git => 'https://github.com/mobile-simformsolutions/SSNaturalLanguage.git', :tag => "#{s.version}" }
 
   s.ios.deployment_target = '13.0'
 
-  s.source_files = 'Sources/**/*'
+  s.source_files = 'Sources/SSNaturalLanguage/**/*.swift'
   
   s.swift_version = '5.0'
   
