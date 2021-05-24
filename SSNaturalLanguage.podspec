@@ -22,7 +22,7 @@ Pod::Spec.new do |s|
 
   s.ios.deployment_target = '13.0'
 
-  s.source_files = 'Sources/SSNaturalLanguage/**/*.swift'
+  s.source_files = 'Sources/SSNaturalLanguage/*.swift'
   
   s.swift_version = '5.0'
   
