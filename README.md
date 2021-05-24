@@ -30,7 +30,7 @@ The SSNaturalLanguage framework let you provide a variety of natural language pr
 -   When using Xcode 11 or later, you can install `SSNaturalLanguage` by going to your Project settings > `Swift Packages` and add the repository by providing the GitHub URL. Alternatively, you can go to `File` > `Swift Packages` > `Add Package Dependencies...`
 ```swift
 dependencies: [
-    .package(url: "https://github.com/mobile-simformsolutions/SSNaturalLanguage.git", from: "1.0.0")
+    .package(url: "https://github.com/SimformSolutionsPvtLtd/SSNaturalLanguage.git", from: "1.0.0")
 ]
 ```
 ####  Carthage
@@ -42,7 +42,7 @@ $ brew install carthage
 To integrate `SSNaturalLanguage` into your Xcode project using Carthage, add the following line to your `Cartfile`:
 
 ```ogdl
-github "mobile-simformsolutions/SSNaturalLanguage"
+github "SimformSolutionsPvtLtd/SSNaturalLanguage"
 ```
 Run `carthage` to build and drag the `SSNaturalLanguage`(Sources/SSNaturalLanguage) into your Xcode project.
 
@@ -178,7 +178,7 @@ let sentimentalScore = text.sentimentalScore()
 print(sentimentalScore) ==> -0.6
 ```
 #### 11. Word Embedding
-![Alt text](https://github.com/mobile-simformsolutions/SSNaturalLanguage/blob/feature/Readme_setup/Attachments/Vectors.png)
+![Alt text](https://github.com/SimformSolutionsPvtLtd/SSNaturalLanguage/blob/main/Attachments/Vectors.png)
 - `neighboringWords` function will find similar kinds of word from given word. Ex. Let's say we type "king". Off the top of my head, we would want words like "prince", "crown", "throne" etc...
 ```swift
 let word = "cheese"
