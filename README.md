@@ -30,7 +30,7 @@ The SSNaturalLanguage framework let you provide a variety of natural language pr
 -   When using Xcode 11 or later, you can install `SSNaturalLanguage` by going to your Project settings > `Swift Packages` and add the repository by providing the GitHub URL. Alternatively, you can go to `File` > `Swift Packages` > `Add Package Dependencies...`
 ```swift
 dependencies: [
-    .package(url: "https://github.com/mobile-simformsolutions/SSNaturalLanguage.git", from: "0.1.0")
+    .package(url: "https://github.com/mobile-simformsolutions/SSNaturalLanguage.git", from: "1.0.0")
 ]
 ```
 ####  Carthage

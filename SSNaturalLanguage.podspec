@@ -8,17 +8,17 @@
 
 Pod::Spec.new do |s|
   s.name             = 'SSNaturalLanguage'
-  s.version          = '0.1.0'
+  s.version          = '1.0.0'
   s.summary          = 'Exploring word embedding and text catalogs with SSNaturalLanguage framework.'
 
   s.description      = <<-DESC
 'SSNaturalLanguage framework let you help with language related stuffs like tokenisation, lemmatization, languageIdentification, spellCorrection, partOfSpeech, sentimental score, neighboringWord, uniqueTagsFromSentense, etc... with just a single function call.'
                        DESC
 
-  s.homepage         = 'https://github.com/Abhi Makadiya/SSNaturalLanguage'
+  s.homepage         = 'https://github.com/SimformSolutionsPvtLtd/SSNaturalLanguage'
   s.license          = { :type => 'MIT', :file => 'LICENSE' }
   s.author           = { 'Abhi Makadiya' => 'abhi.m@simformsolutions.com' }
-  s.source           = { :git => 'https://github.com/mobile-simformsolutions/SSNaturalLanguage.git', :tag => "#{s.version}" }
+  s.source           = { :git => 'https://github.com/SimformSolutionsPvtLtd/SSNaturalLanguage.git', :tag => "#{s.version}" }
 
   s.ios.deployment_target = '13.0'
 
@@ -31,3 +31,4 @@ Pod::Spec.new do |s|
   }
   
 end
+
