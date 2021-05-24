@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'SSNaturalLanguage'
-  s.version          = '0.1.0'
+  s.version          = '1.0.0'
   s.summary          = 'Exploring word embedding and text catalogs with SSNaturalLanguage framework.'
 
   s.description      = <<-DESC
